@@ -15,6 +15,8 @@ function App() {
   //
   const [expences, setExpences] = useState(DUMMY_EXPENCES);
   const [message, setMessage] = useState("");
+  const [date, setDate] = useState(new Date());
+
 
 
 
@@ -65,25 +67,27 @@ function App() {
 
 
 
-     const handleUpdate = async (event) => {
-      console.log(event.prevId)
-      
-        const response = await fetch('http://localhost/api/update_api.php', {
-          method: 'PUT', // Use 'PATCH' if you're partially updating data
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          body: `id=${event.prevId}&title=${event.title}`,
-        });
-  
-        const data = await response.json();
-        fetchData()
-        setMessage(data.message);
-  
-      
-      
-    };
-  
+  const handleUpdate = async (event) => {
+    console.log(event.prevId)
+
+    const response = await fetch('http://localhost/api/update_api.php', {
+      method: 'PUT', // Use 'PATCH' if you're partially updating data
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `id=${event.prevId}&title=${event.title}`,
+    });
+
+    const data = await response.json();
+    fetchData()
+    setMessage(data.message);
+
+
+
+  };
+
+ 
+
 
 
 
@@ -91,6 +95,9 @@ function App() {
 
   return (
     <div className='body' >
+      <div className='title'>Expences App</div>
+      <hr />
+      <h6 className='date-object'><b>Today Date :</b>{date.toDateString()}</h6>
       <h4 className='text-danger'> {message}</h4>
       <NewExpences expenceData={addExpences} />
       <Expences item={expences} delete={handleDelete} update={handleUpdate} />
