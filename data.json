@@ -1,0 +1,20 @@
+[
+     { 
+        "id": "1",
+        "_date": "2023-04-23", 
+        "title": "hospital", 
+        "amount": "1000" 
+    }, 
+    {
+         "id": "2", 
+        "_date": "2023-05-03", 
+        "title": "stationary", 
+        "amount": "50" 
+    }, 
+    { 
+        "id": "3", 
+        "_date": "2023-04-13", 
+        "title": "ticket", 
+        "amount": "300" 
+    }
+]
