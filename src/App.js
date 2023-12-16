@@ -3,14 +3,19 @@ import './App.css';
 import Expences from './components/Expences/Expences';
 import NewExpences from './components/NewExpences/NewExpences';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import userlogo from './user.png'
 
 
 //for storing dummy data
 let DUMMY_EXPENCES = [];
 
-function App() {
+function App(state) {
 
 
+  const location = useLocation();
+
+  console.log(location.state.email)
 
   //
   const [expences, setExpences] = useState(DUMMY_EXPENCES);
@@ -86,7 +91,7 @@ function App() {
 
   };
 
- 
+
 
 
 
@@ -95,7 +100,12 @@ function App() {
 
   return (
     <div className='body' >
-      <div className='title'>Expences App</div>
+      <div className='title'>Expences App
+        <div className='user-icon'>
+          <span className=''><img src={userlogo} alt="Logo" /></span>
+          <span className='user-email'>{ location.state.email}</span>
+        </div>
+      </div>
       <hr />
       <h6 className='date-object'><b>Today Date :</b>{date.toDateString()}</h6>
       <h4 className='text-danger'> {message}</h4>

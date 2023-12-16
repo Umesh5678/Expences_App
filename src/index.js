@@ -21,7 +21,7 @@ root.render(
     <Router>
             <Routes>
                 <Route path="/" exact element={<Login />}/>
-                <Route path="/success" exact element={<App />}/> 
+                <Route path="/success"  exact element={<App />}/> 
             </Routes>
         </Router>
   </React.StrictMode>

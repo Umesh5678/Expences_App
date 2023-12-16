@@ -9,6 +9,10 @@ const Login = (props) => {
     const [error,setError]=useState("");
 
 
+    let navigate = useNavigate();
+
+
+
     const user = {
         email : 'umeshmahajan88050@gmail.com',
         password : 'Umesh@123'
@@ -16,7 +20,6 @@ const Login = (props) => {
 
     const LoginDetails = (data) => {
         
-        var answer = true;
         let inputemail = data.email;
         let inputpass = data.password;
         
@@ -24,7 +27,7 @@ const Login = (props) => {
         if(user.email === inputemail && user.password === inputpass){
             console.log("login loginStatus " + loginStatus);
           setloginStatus(true)
-          window.location.href = '/success'
+          navigate('/success', { state: user });
 
         }else{
             setError("Login failed")

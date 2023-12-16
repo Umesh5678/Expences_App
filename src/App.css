@@ -52,3 +52,17 @@
   }
 }
 
+.user-icon{
+  float: right;
+  margin-right: 100px;
+  
+
+}
+
+.user-email{
+  font-size: 13px;
+  margin-left: 10px;
+  padding-bottom: 20px;
+  
+}
+
