@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import Login from './LoginComponent/Login';
 import { BrowserRouter as Router , Routes , Route, useNavigate } from 'react-router-dom'
+import Register from './RegisterComponent/Register';
 
 
 
@@ -22,6 +23,7 @@ root.render(
             <Routes>
                 <Route path="/" exact element={<Login />}/>
                 <Route path="/success"  exact element={<App />}/> 
+                <Route path="/register"  exact element={<Register  />}/> 
             </Routes>
         </Router>
   </React.StrictMode>

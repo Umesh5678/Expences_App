@@ -1,5 +1,5 @@
 .form{
-    height: 370px;
+    height: 400px;
     width: 300px;
     background-color: rgba(235, 24, 137, 0.13);
     position: absolute;
@@ -10,7 +10,7 @@
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 40px rgba(8,7,16,0.6);
-    padding: 50px 35px;
+    padding: 30px 35px 90px 35px;
 }
 .form *{
     font-family: 'Poppins',sans-serif;
@@ -48,7 +48,7 @@
     color: rgb(243, 20, 20);
 }
 .form button{
-    margin-top: 50px;
+    margin-top: 30px;
     width: 100%;
     background-color: #ffffff;
     color: #080710;
@@ -62,4 +62,14 @@
     color: white;
     background-color: black;
     
+}
+
+.form span{
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.registerLink{
+    margin-top: 20px;
 }

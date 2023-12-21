@@ -11,6 +11,7 @@ const LoginCard = (props) => {
         <div >
 
             <div><LoginForm LoginHandle={LoginData} message = { message }/></div>
+            
         </div>
     );
 }
