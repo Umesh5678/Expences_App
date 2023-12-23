@@ -31,6 +31,7 @@ const RegisterForm = (props) => {
     const submitHandler = (event) => {
         event.preventDefault();
         const object = {
+            user_id : Number(Math.random().toString()),
             name : inputName,
             password : inputPassword,
             email : inputEmail,
