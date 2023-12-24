@@ -25,7 +25,8 @@ const ExpenceForm = (props) => {
         const expenceData = {
             date : new Date(inputDate),
             title:inputTitle,
-            amount:parseInt(inputAmount)
+            amount:parseInt(inputAmount),
+            
             
         }
        

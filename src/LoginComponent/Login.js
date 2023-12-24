@@ -1,47 +1,61 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import LoginCard from "./LoginCard";
 import './Login.css'
 import { useNavigate } from "react-router-dom";
 
 
 const Login = (props) => {
-    const [loginStatus, setloginStatus] = useState(true);
-    const [error,setError]=useState("");
-
-
-    let navigate = useNavigate();
+    // const [loginStatus, setloginStatus] = useState(true);
+     const [error, setError] = useState("");
 
 
 
-    const user = {
-        email : 'umeshmahajan88050@gmail.com',
-        password : 'Umesh@123'
-      }
+     let navigate = useNavigate();
 
-    const LoginDetails = (data) => {
+
+
+
+
+
+    const LoginDetails = async (user) => {
         
-        let inputemail = data.email;
-        let inputpass = data.password;
-        
-    
-        if(user.email === inputemail && user.password === inputpass){
-            console.log("login loginStatus " + loginStatus);
-          setloginStatus(true)
-          navigate('/success', { state: user });
 
-        }else{
-            setError("Login failed")
-            window.location.href = '/'
-        }
+        try {
+            const response = await fetch('http://localhost/api/fetch_user_api.php', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(user),
+            });
+        
+            const textResponse = await response.text();
+            console.log('Server Response:', textResponse);
+
+            const data = JSON.parse(textResponse);
+            console.log(data)
+            navigate('/success', { state: user })
+            // Handle success or error, and store the authentication token
+          } catch (error) {
+            console.error('Error during login:', error);
+          }
+
+
+        
+
+        
+
+
+
     }
 
-    
 
-    
+
+
     return (
         <>
             <div >
-                <LoginCard LoginDetails = { LoginDetails } er = {error} />
+                <LoginCard LoginDetails={LoginDetails} er={error} />
 
             </div>
 

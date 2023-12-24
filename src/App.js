@@ -11,6 +11,7 @@ import userlogo from './user.png'
 let DUMMY_EXPENCES = [];
 
 function App(state) {
+  
 
 
   const location = useLocation();
@@ -25,7 +26,8 @@ function App(state) {
 
 
 
-  function fetchData() {
+  const fetchData = async () => {
+
     fetch("http://localhost/api/api.php").then(
       response => {
         return response.json();
@@ -47,14 +49,17 @@ function App(state) {
 
 
   const addExpences = (expence) => {
-
-
+    const expences = {
+      email : location.state.email,
+      ...expence
+    }
+console.log(expences)
     fetch('http://localhost/api/insert_api.php', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(expence),
+      body: JSON.stringify(expences),
     })
       .then(response => fetchData())
 
