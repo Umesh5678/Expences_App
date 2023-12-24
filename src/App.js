@@ -17,6 +17,7 @@ function App(state) {
   const location = useLocation();
 
   console.log(location.state.email)
+  let inputs = location.state
 
   //
   const [expences, setExpences] = useState(DUMMY_EXPENCES);
@@ -26,8 +27,9 @@ function App(state) {
 
 
 
-  const fetchData = async () => {
-
+  const fetchData = () => {
+    
+    
     fetch("http://localhost/api/api.php").then(
       response => {
         return response.json();
